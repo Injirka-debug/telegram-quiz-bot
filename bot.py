@@ -99,17 +99,16 @@ async def send_question(update: Update, context: ContextTypes.DEFAULT_TYPE):
     data = user_data[user_id]
     index = data["current"]
 
-    if index >= len(questions):
+     if index >= len(questions):
+           await update.message.reply_text(
+            "Остался последний шаг - одпишись на наш телеграм канал t.me/bronislav56",
+            disable_web_page_preview=True
+        )
         await update.message.reply_text(
             f"Тест завершён! Правильных ответов: {data['score']} из {len(questions)}\n\n"
             f"Чтобы пройти тест снова, введите /start или /restart."
         )
-        return ConversationHandler.END
-
-     await update.message.reply_text(
-            "Остался последний шаг - подпишись на наш телеграмм канал t.me/bronislav56",
-            disable_web_page_preview=True
-        )
+      
         return ConversationHandler.END
 
     q = questions[index]
