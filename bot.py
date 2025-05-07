@@ -106,11 +106,11 @@ async def send_question(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return ConversationHandler.END
 
-    if index == 10:
-        await update.message.reply_text(
+     await update.message.reply_text(
             "Остался последний шаг - подпишись на наш телеграмм канал t.me/bronislav56",
             disable_web_page_preview=True
         )
+        return ConversationHandler.END
 
     q = questions[index]
     markup = ReplyKeyboardMarkup([[opt] for opt in q["options"]], one_time_keyboard=True, resize_keyboard=True)
