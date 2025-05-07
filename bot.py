@@ -106,7 +106,7 @@ async def send_question(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return ConversationHandler.END
 
-    if index == 8:
+    if index == 9:
         await update.message.reply_text(
             "Остался последний шаг - подпишись на наш телеграмм канал t.me/bronislav56",
             disable_web_page_preview=True
