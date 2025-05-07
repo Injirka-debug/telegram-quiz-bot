@@ -6,7 +6,7 @@ from telegram.ext import (
     filters, ContextTypes, ConversationHandler
 )
 
-TOKEN = os.environ.get("TOKEN")
+TOKEN = "7923271549:AAGEsVR-DgrT1oaBEFa-AxUr56owHguxZ3w"
 
 questions = [
     {
