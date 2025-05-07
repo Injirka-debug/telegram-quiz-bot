@@ -99,17 +99,18 @@ async def send_question(update: Update, context: ContextTypes.DEFAULT_TYPE):
     data = user_data[user_id]
     index = data["current"]
 
-     if index >= len(questions):
-           await update.message.reply_text(
-            "Остался последний шаг - одпишись на наш телеграм канал t.me/bronislav56",
-            disable_web_page_preview=True
-        )
+    if index >= len(questions):
         await update.message.reply_text(
             f"Тест завершён! Правильных ответов: {data['score']} из {len(questions)}\n\n"
             f"Чтобы пройти тест снова, введите /start или /restart."
         )
-      
         return ConversationHandler.END
+
+    if index == 9:
+        await update.message.reply_text(
+            "Остался последний вопрос, а сейчас подпишись на наш телеграмм канал t.me/bronislav56, там много интересной информации",
+            disable_web_page_preview=True
+        )
 
     q = questions[index]
     markup = ReplyKeyboardMarkup([[opt] for opt in q["options"]], one_time_keyboard=True, resize_keyboard=True)
