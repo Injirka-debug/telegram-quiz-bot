@@ -102,7 +102,7 @@ async def send_question(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if index >= len(questions):
         await update.message.reply_text(
             f"Тест завершён! Правильных ответов: {data['score']} из {len(questions)}\n\n"
-            f"Чтобы пройти тест снова, введите /start или /restart."
+            f"Чтобы пройти тест снова, введите /start."
         )
         return ConversationHandler.END
 
